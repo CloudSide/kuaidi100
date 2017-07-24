@@ -33,7 +33,7 @@ while(1) {
 		if ( $com_info && !empty($com_info['auto']) && is_array($com_info['auto']) ) {
 			foreach ($com_info['auto'] as $auto) {
 				$post_type = $auto['comCode'];
-				$info = file_get_contents('https://www.kuaidi100.com/query?type=' . $post_type . '&postid=' . $id . '&temp=' . time());
+				$info = file_get_contents('http://www.kuaidi100.com/query?type=' . $post_type . '&postid=' . $id . '&temp=' . time());
 				$mysqli = new mysqli($mysql_host . ':' . $mysql_port, $mysql_user, $mysql_pass, $mysql_database);
 				if ($mysqli->connect_errno) {
 					die("Connect failed: " . $mysqli->connect_error);
@@ -54,6 +54,6 @@ while(1) {
 		$mysqli->close();
 	}
 
-	sleep(60);
+	sleep(600);
 
 }
